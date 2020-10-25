@@ -84,8 +84,10 @@ app.delete("/api/note/:id", function(req,res){
         fs.writeFile("./db/noteList.json",JSON.stringify(delArr),function(err){
             if(err) throw err;
             console.log("Added");
-            res.send("/notes");
+            res.redirect("/notes");
+            
         });
+        
     });
 });
 // Starts server on PORT
