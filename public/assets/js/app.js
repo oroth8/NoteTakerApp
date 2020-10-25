@@ -10,9 +10,7 @@ $(document).ready(function(){
     })
 
     $(document).on("click",".del", function(){
-        // console.log(this);
-        var id = $(this).attr("data-name");
-        console.log(id);
+        const id = $(this).attr("data-name");
         $.ajax({
             url:"/api/note/"+id,
             method: "DELETE"

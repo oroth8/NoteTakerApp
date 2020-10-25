@@ -1,6 +1,5 @@
 const express = require("express");
 const fs = require("fs");
-const { join } = require("path");
 const path = require("path");
 
 
@@ -43,7 +42,7 @@ app.get("/notes",function(req,res){
 app.get("/api/notes", function (req,res){
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
-        console.log(data);
+        // console.log(data);
         const newData = JSON.parse(data);
         res.json(newData);
     })
@@ -53,20 +52,41 @@ app.get("/api/notes", function (req,res){
 app.post("/api/note", function (req,res){
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
-        console.log(data);
+        // console.log(data);
         const noteList = JSON.parse(data);
         noteList.push(req.body);
 
         fs.writeFile("./db/noteList.json",JSON.stringify(noteList),function(err){
             if(err) throw err;
-            console.log("Added");
+            // console.log("Added");
             res.redirect("/notes");
         });
     });
 })
 
 app.delete("/api/note/:id", function(req,res){
-    res.json(req.params.title);
-})
+    const delNote = req.params.id;
+    // console.log(delNote);
+    const delArr = [];
+    fs.readFile("./db/noteList.json", "utf8",function(err,data){
+        if(err) throw err;
+        const noteList = JSON.parse(data);
+        for(let i=0;i<noteList.length;i++){
+            if(noteList[i].title==delNote){
+                delete noteList[i].title;
+                delete noteList[i].date;
+                delete noteList[i].notes;
+            }
+            else{
+                delArr.push(noteList[i]);
+            }
+        }
+        fs.writeFile("./db/noteList.json",JSON.stringify(delArr),function(err){
+            if(err) throw err;
+            console.log("Added");
+            res.send("/notes");
+        });
+    });
+});
 // Starts server on PORT
 app.listen(PORT, ()=> console.log(`Listening on PORT: ${PORT}`));
