@@ -9,14 +9,9 @@ $(document).ready(function(){
               <p class="card-text">${data[index].notes}</p>
             </div>
           </div>`)
-
-
-
-
         //    $(".container").append(`<div class="card">
         //    <div class="card-body"> ${data[index].title} <span style="color: red" class="del" data-name=${data[index].title}>-</span></div>
         //    </div>`);
-            
         }
     })
 
@@ -29,6 +24,4 @@ $(document).ready(function(){
             console.log(data);
         })
     })
-    
-
 })

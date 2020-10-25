@@ -13,16 +13,6 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// note taking object
-// testing data
-// const notes = [
-//     {
-//         title: "Server Notes",
-//         date: "10/25/2020",
-//         notes: "lorem stakmflksdjflk;ansdf;klasdnfm;las"
-//     }
-// ];
-
 // Set up body parsing, static, and route middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -42,7 +32,6 @@ app.get("/notes",function(req,res){
 app.get("/api/notes", function (req,res){
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
-        // console.log(data);
         const newData = JSON.parse(data);
         res.json(newData);
     })
@@ -52,13 +41,11 @@ app.get("/api/notes", function (req,res){
 app.post("/api/note", function (req,res){
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
-        // console.log(data);
         const noteList = JSON.parse(data);
         noteList.push(req.body);
 
         fs.writeFile("./db/noteList.json",JSON.stringify(noteList),function(err){
             if(err) throw err;
-            // console.log("Added");
             res.redirect("/notes");
         });
     });
@@ -66,7 +53,6 @@ app.post("/api/note", function (req,res){
 
 app.delete("/api/note/:id", function(req,res){
     const delNote = req.params.id;
-    // console.log(delNote);
     const delArr = [];
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
