@@ -104,3 +104,24 @@ footer .social a:hover {
   font-size: 0.8em;
   width: 40%;
 }
+
+#jumboh1{
+    color: #007bff;
+}
+
+#navLogo{
+    color: #007bff;
+}
+
+.label{
+    color: #007bff; 
+}
+
+#noteLogo{
+    color: #007bff;
+}
+
+#notesH1{
+    color: #007bff;
+    text-decoration: underline;
+}

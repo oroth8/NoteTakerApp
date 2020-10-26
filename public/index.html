@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">NoteTaker</a>
+        <a class="navbar-brand" href="/" id="navLogo">NoteTaker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@
       </nav>
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Note Taker App</h1>
+          <h1 class="display-4" id="jumboh1">Note Taker App</h1>
           <p class="lead">Use this application to take, store, and delete notes.</p>
         </div>
       </div>
@@ -40,16 +40,16 @@
         <!-- action and methods for posting through form -->
         <form action="/api/note" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Title</label>
+              <label class="label" for="exampleInputEmail1">Title</label>
               <!-- IMPORANT NEED TO PASS NAME when using form as server post submission -->
               <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" placeholder="Title of notes">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Date</label>
+              <label class="label" for="exampleInputPassword1">Date</label>
               <input type="text" class="form-control" id="exampleInputPassword1" name="date" placeholder="Date for which notes were taken">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Notes</label>
+                <label class="label" for="exampleInputPassword1">Notes</label>
                 <input type="text" class="form-control" id="noteBox" name="notes" placeholder="Enter notes here!">
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
