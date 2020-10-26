@@ -72,7 +72,7 @@ app.delete("/api/note/:id", function(req,res){
             console.log("Added");
             res.end();
         });
-        res.redirect("/notes");
+        // res.redirect("/notes"); NOT SURE
     });
 });
 // Starts server on PORT
