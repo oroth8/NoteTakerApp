@@ -1,5 +1,8 @@
 [Heroku URL (Live Website)](https://sleepy-headland-86479.herokuapp.com/)
 
+
+![GIF](https://media.giphy.com/media/up50nCGcncuVibXunO/giphy.gif)
+
 # Note Taker App
 
 # Table of Contents
