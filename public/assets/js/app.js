@@ -22,6 +22,9 @@ $(document).ready(function(){
             method: "DELETE"
         }).then(function(data){
             console.log(data);
+            if (data.status === "Success") {
+                window.location = data.redirect;
+            }
         })
     })
 })

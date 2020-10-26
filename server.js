@@ -70,9 +70,9 @@ app.delete("/api/note/:id", function(req,res){
         fs.writeFile("./db/noteList.json",JSON.stringify(delArr),function(err){
             if(err) throw err;
             console.log("Added");
-            res.end();
+            res.json({status: "Success", redirect: '/notes'});
         });
-        // res.redirect("/notes"); NOT SURE
+        
     });
 });
 // Starts server on PORT
