@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    // grabbing data from json file and appending it to html document using jquery
     $.get("/api/notes",function(data){
         // console.log(data);
         for (let index = 0; index <data.length; index++) {

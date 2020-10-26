@@ -41,6 +41,7 @@ app.get("/api/notes", function (req,res){
 app.post("/api/note", function (req,res){
     fs.readFile("./db/noteList.json", "utf8",function(err,data){
         if(err) throw err;
+        console.log(data);
         const noteList = JSON.parse(data);
         noteList.push(req.body);
 
